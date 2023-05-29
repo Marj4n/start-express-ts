@@ -1,5 +1,6 @@
-import { deleteUserById, getUserById, getUsers } from "@/db/users"
 import { Request, Response } from "express"
+
+import { deleteUserById, getUserById, getUsers } from "../db/users"
 
 export const getAllUsers = async (req: Request, res: Response) => {
   try {

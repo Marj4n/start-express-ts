@@ -3,8 +3,8 @@ import {
   getAllUsers,
   getUser,
   updateUser,
-} from "@/controllers/user"
-import { isAuthenticated, isOwner } from "@/middlewares"
+} from "../controllers/user"
+import { isAuthenticated, isOwner } from "../middlewares"
 import { Router } from "express"
 
 export default (router: Router) => {

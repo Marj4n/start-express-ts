@@ -1,5 +1,5 @@
-import { login, logout, register } from "@/controllers/authentication"
-import { isAuthenticated } from "@/middlewares"
+import { login, logout, register } from "../controllers/authentication"
+import { isAuthenticated } from "../middlewares"
 import { Router } from "express"
 
 export default (router: Router) => {
