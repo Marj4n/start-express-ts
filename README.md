@@ -50,7 +50,7 @@ npm start
 
 ## API Documentation
 
-The API url is `http://localhost:8080/api` and the following endpoints are available:
+The API url is `https://start-express-ts-marj4n.vercel.app/api` and the following endpoints are available:
 
 ### Authentication
 
