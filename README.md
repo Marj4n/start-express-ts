@@ -56,9 +56,9 @@ The API url is `http://localhost:8080/api` and the following endpoints are avail
 
 #### - **POST** `/auth/register` - Register a new user.
 
-Required fields: `username`, `email`, `password`
+_Required fields_: `username`, `email`, `password`
 <br>
-Example request body:
+_Example request body_:
 
 ```json
 {
@@ -70,9 +70,9 @@ Example request body:
 
 #### - **POST** `/auth/login` - Login a user.
 
-Required fields: `email`, `password`
+_Required fields_: `email`, `password`
 <br>
-Example request body:
+_Example request body_:
 
 ```json
 {
@@ -83,29 +83,29 @@ Example request body:
 
 #### - **GET** `/auth/logout` - Logout a user.
 
-Description: Only authenticated users can logout.
+_Description_: Only authenticated users can logout.
 
 ### Users
 
 #### - **GET** `/users` - Get all users.
 
-Description: Only authenticated users can get all users.
+_Description_: Only authenticated users can get all users.
 
 #### - **GET** `/users/:id` - Get a user by id.
 
-Description: Only Authenticated users can get a user by id.
+_Description_: Only Authenticated users can get a user by id.
 <br>
-Url example: `http://localhost:8080/api/users/2`
+_Url example_: `http://localhost:8080/api/users/2`
 
 #### - **PATCH** `/users/:id` - Update a user by id.
 
-Description: Only the user's owner can update the user.
+_Description_: Only the user's owner can update the user.
 <br>
-Url example: `http://localhost:8080/api/users/2`
+_Url example_: `http://localhost:8080/api/users/2`
 <br>
-Required fields: `username`
+_Required fields_: `username`
 <br>
-Example request body:
+_Example request body_:
 
 ```json
 {
@@ -115,29 +115,29 @@ Example request body:
 
 #### - **DELETE** `/users/:id` - Delete a user by id.
 
-Description: Only the user's owner can delete the user.
+_Description_: Only the user's owner can delete the user.
 <br>
-Url example: `http://localhost:8080/api/users/2`
+_Url example_: `http://localhost:8080/api/users/2`
 
 ### Books
 
 #### - **GET** `/books` - Get all books.
 
-Description: Everyone can get all books.
+_Description_: Everyone can get all books.
 
 #### - **GET** `/books/:id` - Get a book by id.
 
-Description: Everyone can get a book by id.
+_Description_: Everyone can get a book by id.
 <br>
-Url example: `http://localhost:8080/api/books/2`
+_Url example_: `http://localhost:8080/api/books/2`
 
 #### - **POST** `/books` - Create a new book.
 
-Description: Only authenticated users can create a book.
+_Description_: Only authenticated users can create a book.
 <br>
-Required fields: `title`, `author`, `description`, `publicationYear`
+_Required fields_: `title`, `author`, `description`, `publicationYear`
 <br>
-Example request body:
+_Example request body_:
 
 ```json
 {
@@ -150,13 +150,13 @@ Example request body:
 
 #### - **PATCH** `/books/:id` - Update a book by id.
 
-Description: Only the book's owner can update the book.
+_Description_: Only the book's owner can update the book.
 <br>
-Url example: `http://localhost:8080/api/books/2`
+_Url example_: `http://localhost:8080/api/books/2`
 <br>
-Required fields: `title`, `author`, `description`, `publicationYear`
+_Required fields_: `title`, `author`, `description`, `publicationYear`
 <br>
-Example request body:
+_Example request body_:
 
 ```json
 {
@@ -169,6 +169,6 @@ Example request body:
 
 #### - **DELETE** `/books/:id` - Delete a book by id.
 
-Description: Only the book's owner can delete the book.
+_Description_: Only the book's owner can delete the book.
 <br>
-Url example: `http://localhost:8080/api/books/2`
+_Url example_: `http://localhost:8080/api/books/2`
