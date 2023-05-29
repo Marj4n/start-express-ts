@@ -1,6 +1,7 @@
-import { getUserBySessionToken } from "@/db/users"
 import { NextFunction, Request, Response } from "express"
 import { get, merge } from "lodash"
+
+import { getUserBySessionToken } from "../db/users"
 
 export const isOwner = async (
   req: Request,

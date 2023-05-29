@@ -1,4 +1,4 @@
-import { User } from "@/types/user"
+import { User } from "../types/user"
 import mongoose, { Model, Schema } from "mongoose"
 
 const userSchema: Schema<User> = new mongoose.Schema({

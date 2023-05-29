@@ -41,3 +41,4 @@ package-lock.json
 
 # tsconfig
 tsconfig.tsbuildinfo
+.vercel

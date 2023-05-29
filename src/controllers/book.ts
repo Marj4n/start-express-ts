@@ -1,13 +1,14 @@
+import { Request, Response } from "express"
+import { get } from "lodash"
+
 import {
   createBook,
   deleteBookById,
   getBookById,
   getBooks,
   updateBookById,
-} from "@/db/books"
-import { Book } from "@/types/book"
-import { Request, Response } from "express"
-import { get } from "lodash"
+} from "../db/books"
+import { Book } from "../types/book"
 
 export const index = async (req: Request, res: Response) => {
   try {

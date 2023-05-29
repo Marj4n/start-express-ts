@@ -1,5 +1,5 @@
-import { create, destroy, index, show, update } from "@/controllers/book"
-import { isAuthenticated } from "@/middlewares"
+import { create, destroy, index, show, update } from "../controllers/book"
+import { isAuthenticated } from "../middlewares"
 import { Router } from "express"
 
 export default (router: Router) => {

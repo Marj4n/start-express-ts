@@ -1,5 +1,5 @@
 import crypto from "crypto"
-import { secret } from "@/server"
+import { secret } from "../server"
 
 export const random = () => crypto.randomBytes(128).toString("base64")
 export const hash = (value: string, salt: string) => {
