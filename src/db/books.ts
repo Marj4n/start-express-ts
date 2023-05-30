@@ -1,5 +1,5 @@
 import { Book } from "@/types/book"
-import { Document, Model, Schema, model } from "mongoose"
+import { Model, Schema, model } from "mongoose"
 
 const bookSchema: Schema<Book> = new Schema<Book>({
   _id: { type: String, required: true },
