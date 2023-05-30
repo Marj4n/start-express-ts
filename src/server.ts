@@ -34,7 +34,9 @@ mongoose.connection.once("open", () => {
 
 app.use(
   "/",
-  Router().get("/", (req, res) => res.send("Nothing to see here! go to /api"))
+  Router().get("/", (req, res) =>
+    res.json({ message: "Nothing to see here! go to /api" })
+  )
 )
 
 app.use("/api", router())
