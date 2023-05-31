@@ -46,3 +46,5 @@ app.use("/api", router())
 server.listen(port, () => {
   console.log(`Server listening on http://localhost:${port}`)
 })
+
+export default app
