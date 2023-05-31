@@ -9,7 +9,7 @@ This is a starter project for an Express API using Typescript and MongoDB.
 1. Open a terminal and clone the repo:
 
 ```bash
-git clone https://github.com/Marj4n/start-express-ts.git
+git clone https://github.com/Marj4n/start-express-ts.git [your-project-name]
 ```
 
 2. Go to the project directory and install dependencies:
