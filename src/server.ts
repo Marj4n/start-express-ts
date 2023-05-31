@@ -32,6 +32,8 @@ mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB database successfully!")
 })
 
+app.set("title", "Express.ts Starter")
+
 app.use(
   "/",
   Router().get("/", (req, res) =>

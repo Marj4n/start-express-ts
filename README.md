@@ -1,4 +1,4 @@
-# Express Ts API Starter
+# Express.ts API Starter
 
 This is a starter project for an Express API using Typescript and MongoDB.
 
