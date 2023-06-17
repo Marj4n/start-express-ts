@@ -5,6 +5,7 @@ import {
   getBooks,
   updateBookById,
 } from "@/db/books"
+import { foRes } from "@/helpers"
 import { Book } from "@/types/book"
 import { Request, Response } from "express"
 import { get } from "lodash"
@@ -14,13 +15,13 @@ export const index = async (req: Request, res: Response) => {
     const books = await getBooks()
 
     if (books.length === 0) {
-      return res.status(404).json({ message: "No books found" })
+      return res.status(404).json(foRes(404, "Books not found"))
     }
 
-    return res.status(200).json(books)
+    return res.status(200).json(foRes(200, "Books found", books))
   } catch (error) {
     console.log(error)
-    return res.status(500).json({ message: `Something went wrong, ${error}` })
+    return res.status(500).json(foRes(500, `Something went wrong, ${error}`))
   }
 }
 
@@ -31,13 +32,13 @@ export const show = async (req: Request, res: Response) => {
     const book = await getBookById(id)
 
     if (!book) {
-      return res.status(404).json({ message: "Book not found" })
+      return res.status(404).json(foRes(404, "Book not found"))
     }
 
-    return res.status(200).json(book)
+    return res.status(200).json(foRes(200, "Book found", book))
   } catch (error) {
     console.log(error)
-    return res.status(500).json({ message: `Something went wrong, ${error}` })
+    return res.status(500).json(foRes(500, `Something went wrong, ${error}`))
   }
 }
 
@@ -46,10 +47,11 @@ export const create = async (req: Request, res: Response) => {
     const { title, author, description, publicationYear }: Book = req.body
 
     if (!title || !author || !description || !publicationYear) {
-      return res.status(400).json({
-        message: "Missing required fields",
-        required: "title, author, description, publicationYear",
-      })
+      return res.status(400).json(
+        foRes(400, "Missing required fields", {
+          required: "title, author, description, publicationYear",
+        })
+      )
     }
 
     const userId = get(req, "identity.user._id") as string
@@ -62,12 +64,10 @@ export const create = async (req: Request, res: Response) => {
       userId,
     })
 
-    return res
-      .status(201)
-      .json({ message: "Book created successfully", data: book })
+    return res.status(201).json(foRes(201, "Book created successfully", book))
   } catch (error) {
     console.log(error)
-    return res.status(500).json({ message: `Something went wrong, ${error}` })
+    return res.status(500).json(foRes(500, `Something went wrong, ${error}`))
   }
 }
 
@@ -79,18 +79,19 @@ export const update = async (req: Request, res: Response) => {
     const userId = get(req, "identity.user._id") as string
 
     if (!title || !author || !description || !publicationYear) {
-      return res.status(400).json({
-        message: "Missing required fields",
-        required: "title, author, description, publicationYear",
-      })
+      return res.status(400).json(
+        foRes(400, "Missing required fields", {
+          required: "title, author, description, publicationYear",
+        })
+      )
     }
 
     if (!book) {
-      return res.status(404).json({ message: "Book not found" })
+      return res.status(404).json(foRes(404, "Book not found"))
     }
 
     if (userId !== book.userId) {
-      return res.status(403).json({ message: "Unauthorized" })
+      return res.status(403).json(foRes(403, "Unauthorized"))
     }
 
     const updatedBook = await updateBookById(id, {
@@ -103,10 +104,10 @@ export const update = async (req: Request, res: Response) => {
 
     return res
       .status(200)
-      .json({ message: "Book updated successfully", data: updatedBook })
+      .json(foRes(200, "Book updated successfully", updatedBook))
   } catch (error) {
     console.log(error)
-    return res.status(500).json({ message: `Something went wrong, ${error}` })
+    return res.status(500).json(foRes(500, `Something went wrong, ${error}`))
   }
 }
 
@@ -117,20 +118,20 @@ export const destroy = async (req: Request, res: Response) => {
     const userId = get(req, "identity.user._id") as string
 
     if (!book) {
-      return res.status(404).json({ message: "Book not found" })
+      return res.status(404).json(foRes(404, "Book not found"))
     }
 
     if (userId !== book.userId) {
-      return res.status(403).json({ message: "Unauthorized" })
+      return res.status(403).json(foRes(403, "Unauthorized"))
     }
 
     const deletedBook = await deleteBookById(id)
 
     return res
       .status(200)
-      .json({ message: "Book deleted successfully", data: deletedBook })
+      .json(foRes(200, "Book deleted successfully", deletedBook))
   } catch (error) {
     console.log(error)
-    return res.status(500).json({ message: `Something went wrong, ${error}` })
+    return res.status(500).json(foRes(500, `Something went wrong, ${error}`))
   }
 }
